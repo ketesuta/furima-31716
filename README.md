@@ -57,19 +57,8 @@
 
   | Column | Type | Options |
   | ------ | ---- | ------- |
-  | items_buy_logs | references | null: false, foreign_key: true |
   | user | references | null: false, foreign_key: true |
   | item | references | null: false, foreign_key: true |
-
-  ### Association
-  - belongs_to :user
-  - has_one:through :item
-  - has_one:through :items_buy
-
-  ## items_buy_logs テーブル
-
-  | Column | Type | Options |
-  | ------ | ---- | ------- |
   | クレジットカード決済機能（クレジットカード情報を取得するけど保存しない？）| | |
   | postal_code(郵便番号) | string | null: false, /\A\d{3}[-]\d{4}\z/ |
   | prefectures(都道府県) | integer | null: false |
@@ -79,5 +68,5 @@
   | phone_number(電話番号) | string | null: false length: { maximum: 11 }, exclusion: { in: - }|
 
   ### Association
-
-  -has_one:through :
+  - belongs_to :user
+  - belongs_to :item
