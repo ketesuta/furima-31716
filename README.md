@@ -31,7 +31,7 @@
   | shipping_charges_id(配送料) | integer | null: false |
   | prefectures_id(発送元の地域(都道府県)) | integer | null: false |
   | days_to_ship_id(発送までの日数) | integer | null: false |
-  | price(価格) | numeric | null: false, 300 :greater_than_or_equal_to, 9999999 :less_than_or_equal_to |
+  | price(価格) | integer | null: false, 300 :greater_than_or_equal_to, 9999999 :less_than_or_equal_to |
   | user(出品元のユーザー) | references | null: false, foreign_key: true |
 
 
@@ -60,7 +60,6 @@
   | ------ | ---- | ------- |
   | user | references | null: false, foreign_key: true |
   | item | references | null: false, foreign_key: true |
-  | street_address | references  | null: false, foreign_key: true|
 
   ### Association
   - belongs_to :user
@@ -81,4 +80,4 @@
   | items_buy | references  | null: false, foreign_key: true|
 
   ### Association
-  - belongs_to :items_buy
+  - belongs_to :item_buy
