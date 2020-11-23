@@ -6,12 +6,12 @@
   | Column | Type | Options |
   | ------ | ---- | ------- |
   | nickname | string | null: false|
-  | email | string | unique: true |
+  | email | string | null: false, unique: true |
   | encrypted_password | string | null: false |
-  | first_name | string |null: false, /^[ぁ-んァ-ンー－]+$/ |
-  | last_name | string | null: false, /^[ぁ-んァ-ンー－]+$/ |
-  | first_name_kana | string | null: false, /^[ァ-ンー－]+$/ |
-  | last_name_kana | string | null: false, /^[ァ-ンー－]+$/ |
+  | first_name | string |null: false |
+  | last_name | string | null: false |
+  | first_name_kana | string | null: false |
+  | last_name_kana | string | null: false |
   | birthday | date | null: false |
 
   ### Association
@@ -36,7 +36,7 @@
 
 
   ### Association
-  - has_one:through :items_buy
+  - has_one :items_buy
   - has_many :comments
   - belongs_to :user
 
@@ -64,7 +64,7 @@
   ### Association
   - belongs_to :user
   - belongs_to :item
-  - has_one:through :street_address
+  - has_one :street_address
 
 
   ## street_address(住所)テーブル
@@ -76,7 +76,7 @@
   | municipality(市区町村) | string | null: false |
   | address(番地) | string | null: false |
   | building_name(建物名) | string | |
-  | phone_number(電話番号) | string | null: false length: { maximum: 11 }, exclusion: { in: - }|
+  | phone_number(電話番号) | string | null: false |
   | items_buy | references  | null: false, foreign_key: true|
 
   ### Association
