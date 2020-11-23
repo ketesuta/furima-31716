@@ -28,10 +28,10 @@
   | item_explanation(商品説明) | text | null: false |
   | category_id | integer | null: false |
   | item_status_id | integer | null: false |
-  | shipping_charges_id(配送料) | integer | null: false |
-  | prefectures_id(発送元の地域(都道府県)) | integer | null: false |
+  | shipping_charge_id(配送料) | integer | null: false |
+  | prefecture_id(発送元の地域(都道府県)) | integer | null: false |
   | days_to_ship_id(発送までの日数) | integer | null: false |
-  | price(価格) | integer | null: false, 300 :greater_than_or_equal_to, 9999999 :less_than_or_equal_to |
+  | price(価格) | integer | null: false |
   | user(出品元のユーザー) | references | null: false, foreign_key: true |
 
 
@@ -71,8 +71,8 @@
 
   | Column | Type | Options |
   | ------ | ---- | ------- |
-  | postal_code(郵便番号) | string | null: false, /\A\d{3}[-]\d{4}\z/ |
-  | prefectures_id(都道府県) | integer | null: false |
+  | postal_code(郵便番号) | string | null: false |
+  | prefecture_id(都道府県) | integer | null: false |
   | municipality(市区町村) | string | null: false |
   | address(番地) | string | null: false |
   | building_name(建物名) | string | |
