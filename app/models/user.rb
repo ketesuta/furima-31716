@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :email, uniqueness: true
 
-  VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/
   validates :password, presence: true,
             format: { with: VALID_PASSWORD_REGEX,
              message: "は半角6~12文字英小文字・数字それぞれ１文字以上含む必要があります"}
