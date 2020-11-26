@@ -3,9 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  validates :nickname, presence: true
-  validates :birthday, presence: true
+  
+  with_options presence: true do
+    validates :nickname
+    validates :birthday 
+  end
+  
   validates :email, uniqueness: true
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/
