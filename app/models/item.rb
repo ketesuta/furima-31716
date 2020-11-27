@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   belomgs_to :shipping_charge
   belomgs_to :prefecture
   belomgs_to :days_to_ship
+  belomgs_to :user
+  has_one_attached :imege
 
   validates :imege, :item_name, :item_explanation, presence: true
   validates :price, prefecture: true, 300 :greater_than_or_equal_to, 9999999 :less_than_or_equal_to 
@@ -16,4 +18,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :days_to_ship_id
   end
+
 end
