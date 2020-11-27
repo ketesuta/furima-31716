@@ -6,7 +6,9 @@ class Item < ApplicationRecord
 
   validates :imege, :item_name, :item_explanation, presence: true
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :item_status_id, numericality: { other_than: 1 }
-
+  with_options presence: true, numericality: { other_than: 1 } do
+    validates :category_id
+    validates :item_status_id
+    validates :shipping_charge_id
+  end
 end
