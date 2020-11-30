@@ -1,15 +1,16 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belomgs_to :category
-  belomgs_to :item_status
-  belomgs_to :shipping_charge
-  belomgs_to :prefecture
-  belomgs_to :days_to_ship
-  belomgs_to :user
+  belongs_to :category
+  belongs_to :item_status
+  belongs_to :shipping_charge
+  belongs_to :prefecture
+  belongs_to :days_to_ship
+  belongs_to :user
   has_one_attached :imege
 
   validates :imege, :item_name, :item_explanation, presence: true
-  validates :price, prefecture: true, 300 :greater_than_or_equal_to, 9999999 :less_than_or_equal_to 
+
+  validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 
   with_options presence: true, numericality: { other_than: 1 } do
     validates :category_id

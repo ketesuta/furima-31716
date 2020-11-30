@@ -1,5 +1,5 @@
-class Prefecture < Acitvehash::Base
-  self.date = [
+class Prefecture < ActiveHash::Base
+  self.data = [
     { id:1, name: '---' },
     { id:2, name: '北海道' },
     { id:3, name: '青森県' },
@@ -9,7 +9,7 @@ class Prefecture < Acitvehash::Base
     { id:7, name: '山形県' },
     { id:8, name: '福島県' },
     { id:9, name: '茨城県'},
-    { id:10, name: '栃木県' }
+    { id:10, name: '栃木県' },
     { id:11, name: '群馬県' },
     { id:12, name: '埼玉県' },
     { id:13, name: '千葉県' },
@@ -31,7 +31,7 @@ class Prefecture < Acitvehash::Base
     { id:29, name: '兵庫県' },
     { id:30, name: '奈良県' },
     { id:31, name: '和歌山県'},
-    { id:32, name: '鳥取県' }
+    { id:32, name: '鳥取県' },
     { id:33, name: '島根県' },
     { id:34, name: '岡山県' },
     { id:35, name: '広島県' },
@@ -46,8 +46,8 @@ class Prefecture < Acitvehash::Base
     { id:44, name: '熊本県' },
     { id:45, name: '大分県' },
     { id:46, name: '宮崎県'},
-    { id:47, '鹿児島県' },
-    { id:48, '沖縄県' }
+    { id:47, name: '鹿児島県' },
+    { id:48, name: '沖縄県' }
   ]
   include ActiveHash::Associations
   has_many :items
