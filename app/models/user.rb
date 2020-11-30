@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   with_options presence: true do
     validates :nickname
-    validates :birthday 
+    validates :birthday
   end
   
   validates :email, uniqueness: true
@@ -25,4 +25,7 @@ class User < ApplicationRecord
     validates :first_name_kana
     validates :last_name_kana
   end
+
+  has_many :items
+
 end
