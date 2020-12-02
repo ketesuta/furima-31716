@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC")
   end
 
-  def get
+  def show
+    @item = Item.find(params[:id])
+    
   end
 
   def new
