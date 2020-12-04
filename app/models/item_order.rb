@@ -10,7 +10,7 @@ class ItemOrder
   
   
   def save
-    BuyItem.create(user_id: user_id,item_id: item_id)
-    BuyerAddre.create(postal_code: postal_code,prefecture_id: prefecture_id,municipality: municipality,address: address,building_name: building_name,phone_number: phone_number)
+    buy_item = BuyItem.create(user_id: user_id,item_id: item_id)
+    BuyerAddre.create(buy_item_id: buy_item.id, postal_code: postal_code,prefecture_id: prefecture_id,municipality: municipality,address: address,building_name: building_name,phone_number: phone_number)
   end
 end
