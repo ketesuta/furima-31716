@@ -28,6 +28,11 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order.errors.full_messages).to include("Token can't be blank")
       end
 
+      #it 'クレジットカードの情報が正しくない時' do
+        #@item_order.valid?
+        #expect(@item_order.errors.full_messages).to include("")
+      #end
+
       #it '配送先の住所情報がない時' do
 
         #@item_order.valid?
