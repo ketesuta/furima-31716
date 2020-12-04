@@ -25,7 +25,7 @@ RSpec.describe ItemOrder, type: :model do
       it 'クレジットカードの入力がない時' do
         @item_order.token = ""
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("")
+        expect(@item_order.errors.full_messages).to include("Token can't be blank")
       end
 
       #it 'クレジットカードの情報が正しくない時' do
