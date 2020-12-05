@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :buy_item_set, only: [:index, :create]
-
+  before_action :authenticate_user!
 
   def index
     @item = Item.find(params[:item_id])
+    if (@item.buy_item.present?) || (@item.user == current_user)
+      redirect_to root_path
+    end
     @item_order = ItemOrder.new
   end
 
@@ -37,15 +39,4 @@ class OrdersController < ApplicationController
       )
   end
 
-  def buy_item_set
-    @item = Item.find(params[:item_id])
-    if @item.buy_item.present?
-      redirect_to root_path
-    elsif @item.user == current_user
-      redirect_to root_path
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
-    end
-  end
 end
