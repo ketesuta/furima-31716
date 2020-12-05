@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :buy_item_set, only: [:index, :create]
+
 
   def index
     @item = Item.find(params[:item_id])
@@ -33,5 +35,12 @@ class OrdersController < ApplicationController
         card: buy_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def buy_item_set
+    @item = Item.find(params[:item_id])
+    if @item.buy_item.present?
+      redirect_to root_path
+    end
   end
 end
