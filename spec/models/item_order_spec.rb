@@ -87,6 +87,18 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include()
       end
+
+      it 'user_idが空の時' do
+        @item_order.user_id = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include()
+      end
+
+      it 'item_idが空の時' do
+        @item_order.item_id = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include()
+      end
     end
 
   end
