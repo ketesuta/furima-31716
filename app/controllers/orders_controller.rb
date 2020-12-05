@@ -41,6 +41,8 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if @item.buy_item.present?
       redirect_to root_path
+    elsif @item.user == current_user
+      redirect_to root_path
     end
   end
 end
