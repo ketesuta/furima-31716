@@ -54,7 +54,7 @@
   - belongs_to :item
 
 
-  ## items_buy(商品購入) テーブル
+  ## buy_item(商品購入) テーブル
 
   | Column | Type | Options |
   | ------ | ---- | ------- |
@@ -64,10 +64,10 @@
   ### Association
   - belongs_to :user
   - belongs_to :item
-  - has_one :street_address
+  - has_one :beyer_addre
 
 
-  ## street_address(住所)テーブル
+  ## beyer_addres(住所)テーブル
 
   | Column | Type | Options |
   | ------ | ---- | ------- |
@@ -77,7 +77,7 @@
   | address(番地) | string | null: false |
   | building_name(建物名) | string | |
   | phone_number(電話番号) | string | null: false |
-  | items_buy | references  | null: false, foreign_key: true|
+  | item_buy | references  | null: false, foreign_key: true|
 
   ### Association
-  - belongs_to :item_buy
+  - belongs_to :buy_item

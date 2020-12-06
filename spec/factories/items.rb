@@ -1,6 +1,4 @@
 FactoryBot.define do
-
-
   factory :item do
     item_name { "a" }
     item_explanation { "a" }
