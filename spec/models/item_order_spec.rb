@@ -25,55 +25,49 @@ RSpec.describe ItemOrder, type: :model do
       it 'クレジットカードの入力がない時' do
         @item_order.token = ""
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Token can't be blank")
+        expect(@item_order.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
-
-      #it '配送先の住所情報がない時' do
-
-        #@item_order.valid?
-        #expect(@item_order.errors.full_messages).to include("Token can't be blank")
-      #end
 
       it '郵便番号の情報がない時' do
         @item_order.postal_code = nil
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@item_order.errors.full_messages).to include("郵便番号は不正な値です")
       end
 
       it '都道府県の情報がない時' do
         @item_order.prefecture_id = nil
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
+        expect(@item_order.errors.full_messages).to include("都道府県を入力してください", "都道府県は数値で入力してください")
       end
 
       it '都道府県の情報がid1の時' do
         @item_order.prefecture_id = 1
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item_order.errors.full_messages).to include("都道府県は1以外の値にしてください")
       end
 
       it '市区町村の情報がない時' do
         @item_order.municipality = nil
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Municipality can't be blank")
+        expect(@item_order.errors.full_messages).to include("市区町村を入力してください")
       end
 
       it '番地の情報がない時' do
         @item_order.address = nil
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Address can't be blank")
+        expect(@item_order.errors.full_messages).to include("番地を入力してください")
       end
 
       it '電話番号の情報がない時' do
         @item_order.phone_number = nil
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Phone number is invalid")
+        expect(@item_order.errors.full_messages).to include("電話番号は不正な値です")
       end
 
       it '郵便番号にハイフンがない時' do
         @item_order.postal_code = 1111111
         @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@item_order.errors.full_messages).to include("郵便番号は不正な値です")
       end
 
       it '電話番号が１１桁いないじゃないとき' do
