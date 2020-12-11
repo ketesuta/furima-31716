@@ -67,7 +67,7 @@
   - has_one :beyer_addre
 
 
-  ## beyer_addres(住所)テーブル
+  ## buyer_addres(住所)テーブル
 
   | Column | Type | Options |
   | ------ | ---- | ------- |
