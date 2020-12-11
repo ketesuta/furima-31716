@@ -34,12 +34,6 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order.errors.full_messages).to include("郵便番号は不正な値です")
       end
 
-      it '都道府県の情報がない時' do
-        @item_order.prefecture_id = nil
-        @item_order.valid?
-        expect(@item_order.errors.full_messages).to include("都道府県を入力してください", "都道府県は数値で入力してください")
-      end
-
       it '都道府県の情報がid1の時' do
         @item_order.prefecture_id = 1
         @item_order.valid?
